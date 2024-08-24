@@ -4,7 +4,7 @@ import { StatusBar } from 'expo-status-bar';
 import * as React from 'react';
 import { useEffect, useState } from 'react';
 import { FlatList, Image, SafeAreaView, StyleSheet, Text, View } from 'react-native';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+import PopularView from './PopularView';
 
 
 export default function HomeScreen({ navigation }) {
@@ -12,7 +12,7 @@ export default function HomeScreen({ navigation }) {
     const [postList,setPostList] = useState([]);
 
 const fetchData = async(limit = 10) => {
-    const respone = await fetch('https://jsonplaceholder.typicode.com/photos');
+    const respone = await fetch('https://jsonplaceholder.typicode.com/photos').catch(er => {console.log('Error',error)});
     const data = await respone.json();
     setPostList(data);
   }
@@ -29,7 +29,7 @@ const fetchData = async(limit = 10) => {
             <Text style={{color:'white',alignSelf:'center',fontSize:4}}>trom truyen nhanh nhat vietnam</Text>
         </SafeAreaView>
 
-        <View style={styles.topComic} >
+        {/* <View style={styles.topComic} >
             <Text style={[styles.textWhite,{fontSize:25,marginTop:10,marginBottom:10,fontWeight:'600'}]}>Boku no pico</Text>
            
             <View style={{flexDirection:'row'}}>
@@ -40,7 +40,8 @@ const fetchData = async(limit = 10) => {
                 
             </View>
             <Text style={[styles.textWhite,{marginTop:10,fontSize:15,fontWeight:'500'}]}>Truyện Nổi Bật</Text>
-        </View>
+        </View> */}
+        <PopularView/>
         <Text style={[styles.textWhite,{fontSize:30,fontWeight:'bold',alignSelf:'center',marginTop:40}]}>Truyện Phổ Biến</Text>
         <Text style={[styles.textWhite,{fontSize:15,fontWeight:'450',alignSelf:'center',marginTop:10}]} >Xem thêm</Text>
 
