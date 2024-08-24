@@ -55,7 +55,8 @@ const fetchData = async(limit = 10) => {
        data={postList}
        renderItem={({item}) => {
         return (
-          <View style={[styles.comicItem,{borderRightWidth:1,borderBottomWidth:1,borderLeftWidth:1,borderColor:'gray',borderRadius:10,margin:5}]}>
+        
+          <View style={[styles.comicItem,{borderRightWidth:1,borderBottomWidth:1,borderLeftWidth:1,borderColor:'gray',borderRadius:10,marginHorizontal:10}]}>
             
             
             <Image source={{
@@ -63,7 +64,8 @@ const fetchData = async(limit = 10) => {
         }} 
         style={{width:'100%',height:250,resizeMode:'cover',borderTopLeftRadius:8,borderTopRightRadius:8}}
         />
-        <Text style={[{color:'blue',fontSize:20},styles.textWhite]} numberOfLines={2}>Title: {item.title}</Text>
+        <Text style={[{color:'blue',fontSize:20,textAlign:'left',textAlignVertical:'bottom'},styles.textWhite]} numberOfLines={2}>Title: {item.title}</Text>
+        <Text style={styles.textWhite}>2.3M View</Text>
           </View>
         )
        }}
@@ -77,6 +79,7 @@ const fetchData = async(limit = 10) => {
        />
         </View>
       </View>
+    
     );
   }
 
@@ -100,12 +103,17 @@ const fetchData = async(limit = 10) => {
         color:'white',marginLeft:10
     },
     comicItem: {
-        width:'50%',
-        height:300,
+        width:'45%',
+        height:340,
         //backgroundColor:'red',
         alignItems:'center',
-        marginBottom:10,
-        backgroundColor:'#606262'
+        marginBottom:20,
+        backgroundColor:'#606262',
+        flexWrap:'wrap',
         
+        
+    },
+    ComicView: {
+        justifyContent:'center'
     }
   })
