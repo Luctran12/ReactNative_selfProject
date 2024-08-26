@@ -1,2 +1,1 @@
 "# ReactNative_selfProject" 
-"readme" 
